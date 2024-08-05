@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>N-Queens</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="w3-jumbo">N-Queens</h1>
+    <p>Use of recursive algorithms to solve the N-Queens problem</p>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+        <img src="/img/nqueens.png" alt="Project Image 1" width="500px" class="project-img">
+        <p class="project-description"> The n-queens problem is a classic combinatorial challenge where the objective is to place n queens on an n x n chessboard such that no two queens can attack each other. This means that no two queens should share the same row, column, or diagonal. For a board size of 2 or 3 queens, the problem has no solutions due to insufficient space to place the queens without conflict. However, for a 4x4 board, there are 2 distinct solutions. As the board size increases, the number of possible solutions grows exponentially. For an 8x8 board, there are 92 distinct solutions. The time complexity of solving the n-queens problem using a backtracking algorithm is O(n!), which reflects the factorial growth in the number of permutations that need to be explored. The size of the solution space also expands significantly with larger n, making the problem increasingly challenging to solve efficiently as n grows.
+        </p>
+
+        <img src="/img/4reinas.png" alt="Project Image 2" class = "project-img-right" width="250px"> 
+        <p class="project-description">The first step of my project involved designing an algorithm in Java using recursion to find and store all possible solutions to the n-queens problem. Initially, I used a three-dimensional array to capture each board configuration as a potential solution. This approach allowed me to represent the entire board setup for each configuration in a structured manner. Subsequently, I optimized the storage of solutions by transferring each complete board configuration into a two-dimensional array, where each board was saved as a vector. This change streamlined the storage process, making it more efficient to handle and retrieve multiple solutions by leveraging the two-dimensional array's capability to manage all stored configurations compactly.
+        </p>
+
+        <img src="/img/4reinas2.png" alt="Project Image 3" class="project-img-left" width="300px">
+        <p class="project-description">The final product of the project featured a graphical user interface (GUI developed using JFrame) that visually represented the solutions to the n-queens problem. The interface displayed the entire chessboard, with each cell marked with a 'Q' where a queen was placed. Users could navigate through all possible solutions using the interface, with a "Next" button that allowed them to cycle through the solutions sequentially. If the user reached the last solution and selected "Next," the interface looped back to the beginning, providing a continuous viewing experience. This GUI made it easy to visualize and interact with the different board configurations, enhancing the overall usability and understanding of the problem's solutions.
+        </p>
+      </div>
+  
+    </div>
+
+
+    <!-- GitHub Section -->
+    <div class="w3-center w3-padding-16 git">
+      <a href="https://github.com/santy-estrada/NReinas" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-github w3-xlarge"></i> View Repository
+      </a>
+      <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+      </a>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="w3-content w3-padding-32 w3-text-grey w3-xlarge">
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+
+  </footer>
+</div>
+
+</body>
+</html>

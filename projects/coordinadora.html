@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Geographic Data Visualization</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="w3-jumbo">Geographic Data Visualization</h1>
+    <p>Geographic data analysis and visualization using Plotly, Pandas, and Geopy for the Colombian delivery company Coordinadora</p>
+    <h6>*Click the images from this page</h6>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+        <a href="../files/resultadosCoordinadora.html" target="_blank">
+          <img src="/img/coo1.png" alt="Project Image 1" width="500px" class="project-img">
+        </a>
+        <p class="project-description"> In my project with the delivery company Coordinadora, I focused on optimizing the efficiency and service quality of customer pickups and deliveries. A key aspect of this work involved addressing the complexities of managing geographical locations for these operations. Precise knowledge of package pickup and delivery locations is crucial, but inconsistencies in address nomenclature and structure across various cities, combined with limited coverage in digital map services, make this task challenging. 
+        </p>
+
+        <a href="../files/MexicoConNa.html" target="_blank"><img src="/img/coo2.png" alt="Project Image 2" class = "project-img-right" width="500px">  </a>
+        <p class="project-description">This project focused on two complementary tasks: data cleaning and visualization. I was provided with several datasets containing geographical point information from various sources, including Google Earth, the company's GPS system, Geoapify, and other geocoders. Using Python visualization tools like Plotly, I analyzed these datasets to identify duplicate geographical points and measure the distances between them. The haversine distance, calculated with the geodesic library from Geopy, was instrumental in detecting and addressing data inconsistencies. This process ensured that each geographical point was unique and accurately represented, enhancing the overall quality of the dataset.
+        </p>
+
+        <a href="../files/MexicoSinNa.html" target="_blank"><img src="/img/coo3.png" alt="Project Image 3" class = "project-img-left" width="250px">  </a>
+        <p class="project-description">Then, in a second part of the project, I developed a method to project package deliveries by postal code in Mexico City using demographic data from the 2020 Census. I utilized detailed population data segmented by block and geographic code, which was mapped to specific postal codes. The analysis focused on three key variables: total population, employed population, and population with internet access. <br><br>
+        
+        The total population was broken down into various age ranges, and separate metrics were used to determine employment levels and internet access. I performed a weighted sum of these variables by postal code, with adjustable weights to explore different scenarios. The weighted percentage for each postal code was calculated to determine the proportion of packages each code should receive. The results were visualized on a map of Mexico, using available geographic layers, with postal codes containing incomplete data represented differently to ensure clarity.
+        </p>
+      </div>
+  
+    </div>
+
+
+    <!-- GitHub Section -->
+    <div class="w3-center w3-padding-16 git">
+        
+      <a href="https://drive.google.com/drive/folders/16JZdi_TFZav7fHcMhYLMhmgoUaRWIF1W?usp=sharing" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <span class="material-symbols-outlined">cloud_download</span>
+        <i class="fa-brands fa-google-drive"></i> View Code and Results
+      </a>
+      <a href="../files/Informe Final Coordinadora.pdf" class="w3-button w3-black w3-hover-grey w3-round" target="_blank">
+        <i class="fa fa-file-pdf-o w3-xlarge"></i> Final Report
+      </a>
+      <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+      </a>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="w3-content w3-padding-32 w3-text-grey w3-xlarge">
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+
+  </footer>
+</div>
+
+</body>
+</html>

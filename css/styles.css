@@ -1,0 +1,111 @@
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+/* Button styling */
+.button {
+  background-color: #f1f1f1;
+  color: #000;
+  padding: 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 16px 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+.button:hover {
+  background-color: #555;
+  color: white;
+}
+
+i.logo {
+    font-size: 60px;
+    color: black;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.project {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.project img {
+  width: 100%;
+  border-radius: 10px;
+}
+.project-title {
+  font-size: 24px;
+  margin-top: 10px;
+}
+.project-description {
+  margin-top: 25px;
+}
+
+.fixed-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+}
+.fixed-button .fa {
+  font-size: 24px;
+}
+.fixed-button span {
+  display: block;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.project-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.project-img-right{
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.project-img-left {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+footer, .git{
+  clear: both;
+}
+
+.video-container {
+  clear: both;
+}
+
+.video-container iframe {
+  height: 400px;
+  width: 600px
+}
+
+header h6 {
+  text-align: right;
+  font-size: smaller;
+  padding-right: 10%;
+}
