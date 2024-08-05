@@ -31,7 +31,7 @@
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-content w3-justify w3-text-grey w3-padding-16">
-        <img src="/img/mttb1.jpg" alt="Project Image 1" width="900px" class="project-img">
+        <img src="/img/mttb1.jpg" alt="Project Image 1" class="project-img">
         <p class="project-description"> In the realm of unmanned aerial vehicles (UAVs), the performance and efficiency of drone motors are critical factors that determine flight capabilities and overall operational success. To accurately assess these vital components, I developed a drone motor thrust test bench. This project involved carefully selecting materials based on availability and cost-effectiveness:
             <ul>
                 <li>Arduino UNO R3: Served as the microcontroller, providing control and data processing capabilities.</li>
@@ -44,13 +44,13 @@
             </ul>
         </p>
 
-        <img src="/img/mttb2.jpg" alt="Project Image 2" class = "project-img-right" width="250px"> 
+        <img src="/img/mttb2.jpg" alt="Project Image 2" class = "project-img-right"> 
         <p class="project-description">The design process began by selecting key variables: thrust (grams of force) as the output and current (amperes) as the input. Using Autodesk Inventor Professional 2023, I created a detailed CAD model of the test bench, ensuring precise placement of all components based on thorough examination of propeller specifications. This meticulous design provides a robust foundation for accurately assessing drone motor performance. <br><br>
         
         The construction phase for the motor thrust test bench began with systematically acquiring all necessary components. Using provided data sheets, the team meticulously designed and precision-cut wood and MDF components, with special attention to crafting a motor base that ensured snug accommodation and robust integration into the overall assembly. The construction of the motor thrust test bench, highlights the successful execution of the design and construction processes. The wiring configuration, including the current sensor, amplifier module, and Electronic Speed Controller (ESC), was meticulously done according to manufacturer guidelines, with strategic pin allocation on the Arduino UNO ensuring precise and reliable data acquisition for thrust measurement analysis.
         </p>
 
-        <img src="/img/mttb3.jpg" alt="Project Image 3" class="project-img-left" height="200px">
+        <img src="/img/mttb3.jpg" alt="Project Image 3" class="project-img-left">
         <p class="project-description">The project involved developing software in two interconnected phases. First, the Arduino UNO was programmed using the Arduino IDE, incorporating both intrinsic and the external libraries. This setup allowed the Arduino to process data from a current sensor and load cell while controlling motor power through an ESC, with precise timing. The data was formatted and transmitted to the serial port as a comma-separated list. The code executed a step test, modulating motor power within a 4000-millisecond timeframe, and balanced power management by reducing power levels more quickly than increasing them. The second phase involved managing the collected data, communicating between the serial port and Python to store data in a local PostgreSQL database. The data was then visualized using PowerBI, providing a comprehensive analysis of motor performance and efficiency.
         </p>
       </div>
@@ -76,11 +76,6 @@
 
 
 
-  <!-- Footer -->
-  <footer class="w3-content w3-padding-32 w3-text-grey w3-xlarge">
-    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-
-  </footer>
 </div>
 
 </body>
