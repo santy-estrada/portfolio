@@ -11,6 +11,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   }
 }
 
+.project-date {
+  font-size: 14px;
+  color: #ccc;
+}
+
+
 .pr-title{
   font-size: 8vw;
 }
@@ -64,7 +70,7 @@ i.logo {
   margin-top: 10px;
 }
 .project-description {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .fixed-button {
