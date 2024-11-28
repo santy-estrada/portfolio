@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Geographic Data Visualization</title>
+  <title>Hovercraft</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 <body class="w3-black">
@@ -22,53 +21,70 @@
 <div class="w3-padding-large">
   <!-- Header -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
-    <h1 class="pr-title">Geographic Data Visualization</h1>
-    <p>Geographic data analysis and visualization using Plotly, Pandas, and Geopy for the Colombian delivery company Coordinadora</p>
-    <h6>*Click the images from this page</h6>
+    <h1 class="pr-title">Hovercraft</h1>
+    <p>Design, fabrication, and performance evaluation of a compact hovercraft capable of traversing smooth solid surfaces and water</p>
   </header>
 
   <!-- Project Details -->
   <div class="w3-content w3-justify w3-text-grey">
     <h2 class="w3-text-light-grey">Project Details</h2>
-    <p class="project-date">Completed: May 2024</p>
+    <p class="project-date">Completed: November 2024</p>
     <hr style="width:200px" class="w3-opacity">
 
     <div class="w3-content w3-justify w3-text-grey w3-padding-16">
-        <a href="../files/resultadosCoordinadora.html" target="_blank">
-          <img src="/img/coo1.png" alt="Project Image 1" class="project-img">
-        </a>
-        <p class="project-description"> In my project with the delivery company Coordinadora, I focused on optimizing the efficiency and service quality of customer pickups and deliveries. A key aspect of this work involved addressing the complexities of managing geographical locations for these operations. Precise knowledge of package pickup and delivery locations is crucial, but inconsistencies in address nomenclature and structure across various cities, combined with limited coverage in digital map services, make this task challenging. 
+        <img src="/img/hover/team.jpg" alt="Project Image 1" class="project-img" height="">
+        <p class="project-description"> The hovercraft project was undertaken as part of a multidisciplinary engineering challenge: to design, construct, and evaluate a hovercraft capable of traversing smooth solid surfaces and water with minimal friction and high efficiency. A key requirement was the integration of an energy generation mechanism using renewable energy sources. </p>
+        <p> The project began with an in-depth literature review to identify critical design factors for hovercraft performance and energy generation. The review highlighted that:
+        <ul>
+            <li><strong>Air-Cushion Design</strong>: Circular air-cushions provide the most efficient lift. However, for improved forward motion, a rectangular design with rounded edges and an arc-shaped front was deemed optimal to reduce drag and enhance stability. Avoiding sharp edges was essential for minimizing turbulence and energy loss.</li>
+            <li><strong>Generation</strong>: Various energy harvesting methods were considered, including solar panels, wind turbines, and piezoelectric materials. Using decision matrices to evaluate feasibility, efficiency, and integration potential, the team selected solar panels as the most suitable option.</li>
+        </ul>
         </p>
+        <h3 class="pr-subtitle">Design and Prototyping</h3>
+        <img src="/img/hover/cad.png" alt="Project Image 2" class = "project-img-right"> 
+        <p class="project-description">The hovercraft was developed in iterative phases, with 3D CAD modeling and construction proceeding concurrently. Each phase addressed a critical subsystem, ensuring that the CAD designs were always one step ahead of physical assembly. This phased approach enabled rapid prototyping, testing, and refinement of individual components. <br>
+        <ol>
+          <li><strong>Air-Cushion System</strong>: The air-cushion system, essential for lift and smooth operation, presented the most significant challenges. Multiple prototypes were constructed and tested to achieve minimal friction and optimal air distribution. The final design utilized carefully calculated dimensions and materials to enhance performance.</li>
+          <li><strong>Propulsion System</strong>: The propulsion system was designed to provide sufficient thrust for both ground and water mobility. Propellers and fans were selected and integrated based on performance simulations and real-world testing.</li>
+          <li><strong>Energy Generation</strong>: The energy generation system was integrated into the hovercraft's structure, with solar panels strategically placed to maximize exposure to sunlight. The system was designed to charge a battery bank.</li>
+          <li><strong>Directional Control</strong>: Directional control mechanisms, including rudders and steering systems, were incorporated to ensure precision and agility during movement on both surfaces.</li>
+          <li><strong>Protection Systems</strong>: To safeguard electronic components from water exposure, especially during water-based operations, custom enclosures and protective features were designed and fabricated.</li>
+        </ol>
+        <img src="/img/hover/front.jpg" alt="Project Image 3" class="project-img-left">
 
-        <a href="../files/MexicoConNa.html" target="_blank"><img src="/img/coo2.png" alt="Project Image 2" class = "project-img-right">  </a>
-        <p class="project-description">This project focused on two complementary tasks: data cleaning and visualization. I was provided with several datasets containing geographical point information from various sources, including Google Earth, the company's GPS system, Geoapify, and other geocoders. Using Python visualization tools like Plotly, I analyzed these datasets to identify duplicate geographical points and measure the distances between them. The haversine distance, calculated with the geodesic library from Geopy, was instrumental in detecting and addressing data inconsistencies. This process ensured that each geographical point was unique and accurately represented, enhancing the overall quality of the dataset.
+        The construction utilized a combination of MDF for structural elements and 3D-printed components for complex geometries. Fasteners, including screws and bolts, facilitated modular assembly and disassembly, enabling easy troubleshooting and iterative improvements. Solar panels were mounted securely, and the electrical systems were integrated with detailed schematic designs.
         </p>
-
-        <a href="../files/MexicoSinNa.html" target="_blank"><img src="/img/coo3.png" alt="Project Image 3" class = "project-img-left">  </a>
-        <p class="project-description">Then, in a second part of the project, I developed a method to project package deliveries by postal code in Mexico City using demographic data from the 2020 Census. I utilized detailed population data segmented by block and geographic code, which was mapped to specific postal codes. The analysis focused on three key variables: total population, employed population, and population with internet access. <br><br>
-        
-        The total population was broken down into various age ranges, and separate metrics were used to determine employment levels and internet access. I performed a weighted sum of these variables by postal code, with adjustable weights to explore different scenarios. The weighted percentage for each postal code was calculated to determine the proportion of packages each code should receive. The results were visualized on a map of Mexico, using available geographic layers, with postal codes containing incomplete data represented differently to ensure clarity.
+        <h3 class="pr-subtitle">Competition Performance</h3>
+        <p class="project-description">The completed hovercraft was tested in a university-level competition consisting of three categories:
+          <ul>
+            <li><strong>Ground Agility Test</strong>: The hovercraft demonstrated good maneuverability and low friction, securing second place.</li>
+            <li><strong>Water Agility Test</strong>: The vehicle excelled in handling turns and maintaining stability, achieving first place.</li>
+            <li><strong>Water Race</strong>: Superior propulsion and direction systems propelled the hovercraft to victory in the race.</li>
+          </ul>
+          By winning two out of three events, the team emerged as the overall competition champions, showcasing the effectiveness of their design and engineering processes.
         </p>
       </div>
   
     </div>
 
+    <!-- Centered YouTube Video -->
+    <div class="video-container w3-center">
+        <h4>Final Tests and Competitions Video</h4>
+        <iframe src="https://www.youtube.com/embed/w5FQJYndLFw?si=HTpYKHaWDMRbMqEp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen height="80px"></iframe>      
+    </div>
 
     <!-- GitHub Section -->
     <div class="w3-center w3-padding-16 git">
-        
-      <a href="https://drive.google.com/drive/folders/16JZdi_TFZav7fHcMhYLMhmgoUaRWIF1W?usp=sharing" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
-        <span class="material-symbols-outlined">cloud_download</span>
-        <i class="fa-brands fa-google-drive"></i> View Code and Results
-      </a>
-      <a href="../files/Informe Final Coordinadora.pdf" class="w3-button w3-black w3-hover-grey w3-round" target="_blank">
-        <i class="fa fa-file-pdf-o w3-xlarge"></i> Final Report
+      <a href="../files/DiseñoHover.pdf" class="w3-button w3-black w3-hover-grey w3-round" target="_blank">
+        <i class="fa fa-file-pdf-o w3-xlarge"></i> Design Report
       </a>
       <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
         <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
       </a>
     </div>
   </div>
+
+
 
 </div>
 

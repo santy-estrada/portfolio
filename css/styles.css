@@ -16,6 +16,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   color: #ccc;
 }
 
+.pr-subtitle{
+  font-size: 1.6vw;
+  color: #ccc;
+}
 
 .pr-title{
   font-size: 8vw;
@@ -94,6 +98,7 @@ i.logo {
   margin-right: auto;
   width: 70%;
 }
+
 .project-img-right{
   float: left;
   margin-right: 3%;
@@ -119,7 +124,7 @@ footer, .git{
 
 .video-container iframe {
   height: 400px;
-  width: 80%;
+  width: 60%;
 }
 
 header h6 {
