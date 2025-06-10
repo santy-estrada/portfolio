@@ -10,3 +10,7 @@
 *.mpg
 *.3gp
 *.m4v
+
+# Ignore some images
+img/jwick
+img/queens

@@ -61,7 +61,7 @@ i.logo {
 .project {
   background-color: #333;
   color: white;
-  padding: 3%;
+  padding: 5%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -114,8 +114,8 @@ i.logo {
   
 }
 
-footer, .git{
-  clear: both;
+.git .w3-button {
+  margin: 5px 8px;
 }
 
 .video-container {
@@ -137,6 +137,10 @@ header h6 {
   clear: both;
   text-align: center;
   margin-top: 20px;
+}
+
+.video-container h4 {
+  color: #fff;
 }
 
 .video-wrapper {

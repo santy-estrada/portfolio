@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IoT Greenhouse with Solar Power</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">IoT Greenhouse with Solar Power</h1>
+    <p>Sensor-based plant monitoring and irrigation system with MQTT and cloud integration</p>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <p class="project-date">Completed: June 2025</p>
+    <hr style="width:200px" class="w3-opacity">
+
+    <!-- System Overview -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+        <img src="/img/IoT/pcbView.png" alt="Project Image 1" class="project-img">
+
+        <h3 class="w3-text-light-grey">System Overview</h3>
+        <p>This project aimed to design and build an aesthetically pleasing, solar-powered smart greenhouse system capable of remotely monitoring and irrigating two plants. Each plant features three sensors (temperature, humidity, and luminosity), a dedicated LED for light control, and a solenoid valve for independent irrigation control. A single water pump supplies the entire system, with routing handled by the valves.</p>
+
+        <!-- Mechanical and Electrical Design -->
+        <h3 class="w3-text-light-grey">Mechanical and Electrical Design</h3>
+        <img src="/img/IoT/Greenhouse.png" alt="Project Image 2" class = "project-img-right"> 
+        <p>The greenhouse was built using flat laser-cut sheets and 3D-printed parts to maintain a clean aesthetic without compromising functionality. The electronics were initially designed using KiCAD, allowing PWM control for LEDs and MOSFET/relay switching for valves and the pump. While a custom PCB was planned, a universal PCB was used in the final build due to time constraints. The ESP32 replaced the STM32 microcontroller for faster development.</p>
+
+        <!-- Embedded Software -->
+        <h3 class="w3-text-light-grey">Embedded System</h3>
+        <p>The ESP32 was programmed using FreeRTOS, enabling concurrent execution of three main tasks: actuator control, sensor acquisition, and MQTT communication. Each sensor reading and actuator state was timestamped using an onboard real-time clock (RTC) and published to a local MQTT broker. Event synchronization messages were also received and parsed. [<a href="https://github.com/santy-estrada/Greenhouse_ESP32.git" target="_blank">View Repository</a>]</p>
+
+        <!-- Backend Architecture -->
+        <h3 class="w3-text-light-grey">Backend Architecture</h3>
+        <img src="/img/IoT/architecture.png" alt="Project Image 3" class="project-img-left">
+
+        <ul>
+        <li><strong>Node.js Backend:</strong> Acts as a bridge between the ESP32 and the database. It subscribes to the MQTT topics and logs incoming messages (state variables) into a Supabase PostgreSQL database. It also watches for changes in event variables (user input) and republishes them for the ESP32 to act on. [<a href="https://github.com/santy-estrada/IoT_greenhouse" target="_blank">View Repository</a>]</li>
+        <li><strong>FastAPI Backend:</strong> Handles POST requests from the front-end (Grafana). All user-triggered updates to event variables are routed through this backend to ensure synchronization and data consistency. [<a href="https://github.com/santy-estrada/greenhouse_backGUI" target="_blank">View Repository</a>]</li>
+        </ul>
+
+        <!-- Front-End and Visualization -->
+        <h3 class="w3-text-light-grey">Front-End and Visualization</h3>
+        <p>Grafana was used to visualize time-series data directly from the Supabase database. It was configured such that all updates from the user interface were routed through the FastAPI backend rather than writing directly to the database. This ensured reliable synchronization and avoided conflict between user commands and actual device state.</p>
+
+        <!-- Data Model -->
+        <h3 class="w3-text-light-grey">State and Event Variable Architecture</h3>
+        <p>A key concept in the system is the distinction between <strong>state variables</strong> and <strong>event variables</strong>. State variables (e.g., valve open status) are updated exclusively by the ESP32, while event variables are set by the user (e.g., request to open a valve). When an event variable changes, it is published by the Node.js backend, and the ESP32 reads this change and adjusts its physical state to match it, thus keeping state and intent synchronized.</p>
+      
+    </div>
+    
+    <!-- Centered YouTube Video -->
+    <div class="video-container w3-center">
+      <h4>Project Display</h4>
+      <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/w0fCkULMAyQ?si=DkEoyDF0uk8-qcic" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen></iframe>
+      </div>    
+    </div>
+
+    <!-- GitHub Section -->
+    <footer class="w3-center w3-padding-16 git">
+      <a href="https://github.com/santy-estrada/IoT_greenhouse" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-github w3-xlarge"></i> NodeJS Backend Repo
+      </a>
+      <a href="https://github.com/santy-estrada/greenhouse_backGUI" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-github w3-xlarge"></i> FastAPI Backend Repo
+      </a>
+      <a href="https://github.com/santy-estrada/Greenhouse_ESP32.git" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-github w3-xlarge"></i> ESP32 Code Repo
+      </a>
+      <a href="https://santyestrada.grafana.net/public-dashboards/24f1eee215f14c9487b54669c6f9130f" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-bar-chart w3-xlarge"></i> Grafana State Variables Dashboard
+      </a>
+      <a href="https://santyestrada.grafana.net/public-dashboards/2657e4196110449f98dbd3902f0a87f0" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-bar-chart w3-xlarge"></i> Grafana Event Variables Dashboard
+      </a>
+      <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+      </a>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>

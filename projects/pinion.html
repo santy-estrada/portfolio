@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pinion Double-Rack System: Hybrid Modeling and Experimental Validation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">Pinion Double-Rack System</h1>
+    <p>Modeling, instrumentation, and hybrid control of a mechanical-electrical system</p>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <p class="project-date">CIIMA 2025 (Published) - IEEE CCAC 2025 (Submitted)</p>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+      <img src="/img/pinion/block.png" alt="Pinion System Setup" class="project-img">
+      <p class="project-description">
+        This project focuses on the design, construction, and analytical modeling of a <strong>double-rack mechanism</strong> for advanced system identification and hybrid dynamics research. The initial phase of the project was presented at the <strong>XIV Congreso Internacional de Ingeniería Mecatrónica y Automatización - CIIMA 2025</strong>. In that study, we implemented a physical prototype consisting of a DC motor, dual opposing racks, and elastic springs, instrumented with current, displacement, and angular velocity sensors.
+      </p>
+
+    <img src="/img/pinion/283Propio.png" alt="Project Render" class="project-img-right">
+
+      <p class="project-description">
+        The research aimed to experimentally identify uncertain dynamic parameters such as armature resistance, inductance, and viscous friction of the DC motor. Data was gathered from the physical system using an Arduino-controlled acquisition setup, and analyzed using <em>MATLAB/Simulink</em>. The resulting dynamic model was refined through grey- and black-box identification methods, showing strong agreement between simulation and experimental results.
+      </p>
+
+      <p class="project-description">
+        Building on this foundation, an extension of the work was submitted to the <strong>7th IEEE Colombian Conference on Automatic Control (CCAC 2025)</strong>. This second paper introduced a formal <em>hybrid dynamical system</em> (HDS) perspective, modeling the switching behavior inherent in the pinion double-rack setup. The system's behavior was described using hybrid automata, capturing transitions between discrete movement phases based on the spring deformation and angular displacement of the gear.
+      </p>
+
+      <p class="project-description">
+        The hybrid model used a state-space formulation that incorporated the previously identified parameters. Transitions between states were triggered by guard conditions linked to the deformation limits of each spring. Each mode corresponded to either upward or downward motion of one of the racks. The hybrid simulation framework, implemented in Simulink with switching logic, enabled evaluation of the system under realistic constraints, including friction and power consumption.
+      </p>
+
+      <p class="project-description">
+        A key contribution of this work was the analysis of <strong>energy consumption</strong> under hybrid control. By integrating the absolute value of current over time, we compared the simulation against real measurements and observed a 30.8% increase in experimental energy use, highlighting the gap introduced by electrical and mechanical inefficiencies. Additionally, the system's behavior in phase space confirmed the effectiveness of the hybrid representation in predicting switching dynamics.
+      </p>
+    </div>
+  
+  </div>
+
+    <!-- Centered YouTube Video -->
+    <div class="video-container w3-center">
+      <h4>Physical Demonstration of the System</h4>
+      <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/cgN-SCW-EeU" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen></iframe>
+      </div>    
+    </div>
+
+    <!-- GitHub Section -->
+    <div class="w3-center w3-padding-16 git">
+      <a href="../files/pinionP1.pdf" class="w3-button w3-black w3-hover-grey w3-round" target="_blank">
+        <i class="fa fa-file-pdf-o w3-xlarge"></i> CIIMA 2025 Paper
+      </a>
+
+      <a href="../files/" class="w3-button w3-black w3-hover-grey w3-round" target="_blank">
+        <i class="fa fa-file-pdf-o w3-xlarge"></i> CCAC 2025 Paper
+      </a>
+
+      <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+      </a>
+    </div>
+  </div>
+
+
+
+</div>
+
+</body>
+</html>
