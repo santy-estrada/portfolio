@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ROV Project</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">Remotely Operated Vehicle (ROV)</h1>
+    <p>Design, construction, programming, and testing of a fully functional aquatic ROV</p>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <p class="project-date">Completed: 2025</p>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+
+        <!-- IMAGE PLACEHOLDER -->
+        <img src="/img/rov/rov1.jpg" alt="ROV Main Image" class="project-img">
+
+        <p class="project-description">
+          This project consisted in the <strong>design, construction, programming, and testing</strong> of a Remotely Operated Aquatic Vehicle (ROV).  
+          The goal was to create a modular, and robust underwater robot capable of operating at depth while providing real-time feedback to the operator.  
+        </p>
+
+        <p>
+          The design followed an <strong>iterative engineering approach</strong>: each prototype was evaluated, improved, and refined to achieve greater buoyancy control, stability, and reliability. The final ROV incorporated:
+        </p>
+
+        <ul>
+          <li><strong>Two high-thrust DC motors</strong> for horizontal propulsion.</li>
+          <li><strong>A ballast tank system</strong> with end switches to prevent mechanical overextension.</li>
+          <li><strong>A calibrated pressure sensor</strong> used as a depth measurement system.</li>
+          <li><strong>Internal moisture detection</strong> for safety against flooding.</li>
+          <li><strong>A deadman-switch-based safety system</strong> that automatically stops actuation if the operator releases the control.</li>
+          <li><strong>A custom emergency ballast-purge button</strong> capable of overriding the deadman switch to force 100% power to the ballast motor.</li>
+          <li><strong>A multipurpose custom PCB</strong> designed to support the ROV, SCARA robot, and differential-drive robots</li>
+        </ul>
+
+        <h3 class="pr-subtitle">Mechanical Design</h3>
+
+        <img src="/img/rov/cad.png" alt="ROV CAD" class="project-img-right">
+
+        <p class="project-description">
+          The ROV's structure was modeled in CAD and manufactured using a combination of <strong>3D-printed components</strong> and lightweight materials for structural integrity.  
+          The enclosure for electronics was designed to be <strong>fully watertight</strong>, incorporating O-rings, cable glands, and gasket interfaces to ensure protection during submersion.  
+          All mechanical elements were developed to allow easy modular replacement and iterative improvement.  
+        </p>
+
+        <p>
+          Key mechanical elements included:
+        </p>
+
+        <ol>
+          <li><strong>Ballast System</strong>: A carefully designed ballast tank capable of controlled flooding and purging, monitored by end switches to avoid unsafe piston motion.</li>
+          <li><strong>Propulsion</strong>: Two thrust motors arranged to produce forward, reverse, and turning motion with differential control.</li>
+          <li><strong>Depth Sensing</strong>: A pressure sensor calibrated and mapped to a depth estimation model.</li>
+          <li><strong>Watertight Electronics Compartment</strong>: Secured with multiple seals and internal humidity detection.</li>
+        </ol>
+
+        <h3 class="pr-subtitle">Electronics and PCB Design</h3>
+        <img src="/img/rov/pcb.png" alt="ROV PCB" class="project-img-left">
+
+        <p class="project-description">
+          The electronics relied on a <strong>custom PCB</strong> designed to support both the ROV and other robotics platforms developed throughout the course.  
+          The board incorporated motor drivers, power regulation, sensor interfaces, communication modules, and failsafe logic.  
+        </p>
+
+        <p>
+          The ROV communicated with the surface via a tether, enabling stable control and real-time telemetry through the ROS2 ecosystem.  
+        </p>
+
+        <h3 class="pr-subtitle">Software Architecture</h3>
+
+        <p class="project-description">
+          The ROV's microcontroller was programmed using <strong>object-oriented programming (POO)</strong> principles and implemented using <strong>micro-ROS</strong>.  
+          The onboard firmware published and subscribed to ROS2 topics, enabling seamless integration with a workstation running ROS2 at the surface.  
+        </p>
+
+        <p>
+          A <strong>custom ROS2 node</strong> was developed for interpreting joystick commands and sending them to the ROV through the tether connection.  
+        </p>
+
+        <ul>
+          <li>Joystick control over USB.</li>
+          <li>Deadman-switch logic implemented at the node level.</li>
+          <li>Ballast override function mapped to a dedicated button.</li>
+          <li>Real-time depth feedback and moisture alerts.</li>
+        </ul>
+
+        <p>
+          Repositories:  
+          <br>
+          • <a href="https://github.com/santy-estrada/industrial_robotics_ros2_pico/tree/main/rov" target="_blank">Microcontroller Firmware Repository</a>  
+          • <a href="https://github.com/santy-estrada/industrial_robotics_ros2_labs/tree/main/rov_pkg_gr03" target="_blank">ROS2 Node Repository</a>  
+          <br>
+          Engineering Notebook:  
+          <br>
+          • <a href="https://knowing-woolen-cec.notion.site/Prueba-FINAL-6-11-2025-2a448b3a814580a09abdd8cb69419004?source=copy_link" target="_blank">Online Project Notebook</a>
+        </p>
+
+        <h3 class="pr-subtitle">Testing and Validation</h3>
+
+        <img src="/img/rov/test.png" alt="ROV Testing" class="project-img-right">
+
+        <p class="project-description">
+          The ROV underwent pool testing to validate buoyancy control, directional stability, depth sensing accuracy, and safety mechanisms.  
+          The ballast system demonstrated reliable operation, and the deadman-switch behavior proved essential for ensuring operational safety during unexpected events.  
+        </p>
+
+        <p>
+          Moisture detection was tested by simulating internal condensation events, confirming that the system successfully raised warnings to the operator.  
+        </p>
+
+    </div>
+    <br><br>
+    <!-- Centered YouTube Video Placeholder -->
+    <div class="video-container w3-center">
+      <h4>ROV Testing Video</h4>
+      <div class="video-wrapper">
+          <!-- Replace VIDEO_ID with your video link -->
+          <iframe src="https://www.youtube.com/embed/5XKEOPWma9o?si=frj0AVVA-8wmDaac" 
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+      </div>
+    </div>
+
+        <!-- GitHub Section -->
+    <footer class="w3-center w3-padding-16 git">
+      <a href="https://github.com/santy-estrada/industrial_robotics_ros2_pico/tree/main/rov" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-github w3-xlarge"></i> micro-ROS Firmware Repo
+      </a>
+      <a href="https://github.com/santy-estrada/industrial_robotics_ros2_labs/tree/main/rov_pkg_gr03" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-github w3-xlarge"></i> ROS2 Node Repo
+      </a>
+      <a href="https://knowing-woolen-cec.notion.site/ROV-Engineering-Notebook-26948b3a81458057ad60d93f8aa83325?source=copy_link" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-bar-chart w3-xlarge"></i> Engineering Notebook
+      </a>
+      <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+      </a>
+
+  </div>
+</div>
+
+</body>
+</html>
