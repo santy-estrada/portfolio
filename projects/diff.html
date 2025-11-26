@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Differential Drive Robot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">Differential Drive Robot</h1>
+    <p>Remote and Autonomous Mobile Robot with Sensor Fusion, PID Velocity Control, and ROS2 Integration</p>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <p class="project-date">Completed: 2025</p>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+
+      <!-- MAIN IMAGE -->
+      <img src="/img/diff/team.jpg" alt="Differential Drive Robot Main Image" class="project-img">
+
+      <p class="project-description">
+        This project consisted in the <strong>design, construction, coding, and testing</strong> of a fully functional differential drive mobile robot capable of operating in both <strong>manual (remote)</strong> and <strong>autonomous modes</strong>.
+      </p>
+
+      <p>
+        The robot was developed for a competitive academic challenge where each team needed to complete a two-lap square circuit in the shortest time possible.  
+        <strong>My team achieved first place with a 30-second lead</strong>, demonstrating the effectiveness of the robot's control system, sensor fusion, and ROS2 architecture.
+      </p>
+
+      <h3 class="pr-subtitle">Mechanical Design</h3>
+
+      <img src="/img/diff/design.jpg" alt="Differential Drive CAD" class="project-img-right">
+
+      <p class="project-description">
+        The robot used a <strong>differential drive configuration</strong> consisting of:
+      </p>
+
+      <ul>
+        <li><strong>Two DC motors with encoders</strong> driving the left and right wheels.</li>
+        <li><strong>One caster wheel</strong> for passive stabilization.</li>
+        <li><strong>Front-facing ultrasonic sensor</strong> for obstacle avoidance.</li>
+        <li><strong>IMU</strong> integrated for orientation measurement and fusion with encoder odometry.</li>
+      </ul>
+
+      <p>
+        The chassis was designed for modularity and robustness, enabling quick motor replacement and easy access to electronics.
+      </p>
+      <br><br>
+      <h3 class="pr-subtitle">Sensing and Safety</h3>
+
+      <img src="/img/diff/built1.png" alt="Sensors" class="project-img-left">
+
+      <ul>
+        <li><strong>Ultrasonic sensor</strong>: When an object was detected within 10 cm, the robot <strong>force-stopped the motors</strong> and ignored joystick input.</li>
+        <li><strong>IMU + Encoders</strong>: Implemented sensor fusion for improved heading estimation during autonomous navigation.</li>
+      </ul>
+
+      <p>
+        These systems ensured safety in manual mode and accuracy in autonomous operation.
+      </p>
+
+      <h3 class="pr-subtitle">Low-Level Control</h3>
+
+      <p class="project-description">
+        The low-level control system implemented a <strong>discrete PID controller</strong> to regulate motor velocity.  
+      </p>
+
+      <p>Development steps included:</p>
+
+      <ol>
+        <li><strong>Non-parametric system identification</strong> of the motor dynamics.</li>
+        <li><strong>Ziegler–Nichols tuning</strong> to obtain an initial PID approximation.</li>
+        <li><strong>Simulink simulations</strong> with disturbances for robustness testing.</li>
+        <li><strong>Final deployment</strong> on a Raspberry Pi Pico running micro-ROS.</li>
+      </ol>
+
+      <p>
+        The final PID loop executed every <strong>100 ms</strong>, balancing real-time performance with available processing resources.
+      </p>
+
+      <h3 class="pr-subtitle">Electronics & Embedded System</h3>
+
+      <img src="/img/diff/electronics.jpg" alt="Differential Drive Electronics" class="project-img-right">
+
+      <p class="project-description">
+        The embedded system architecture used:
+      </p>
+
+      <ul>
+        <li><strong>Raspberry Pi Pico</strong> running micro-ROS for motor control and sensor processing.</li>
+        <li><strong>Raspberry Pi 2</strong> as the onboard computer handling ROS2 communication.</li>
+        <li><strong>Custom wiring harness</strong> for clean integration of sensors and motor drivers.</li>
+      </ul>
+
+      <p>
+        The Pico transmitted odometry and received velocity commands through micro-ROS topics, while the Raspberry Pi 2 acted as a ROS2 bridge with the remote workstation.
+      </p>
+
+      <h3 class="pr-subtitle">High-Level Control and Autonomy</h3>
+
+      <p class="project-description">
+        The high-level control system supported two modes:
+      </p>
+
+      <ul>
+        <li><strong>Manual Mode</strong> — A ROS2 joystick node interpreted controller commands and sent motor references through the network.</li>
+        <li><strong>Autonomous Mode</strong> — A set of ROS2 nodes implemented trajectory following using the <strong>pure pursuit algorithm</strong>.</li>
+      </ul>
+
+      <p>
+        Real-time visualization was achieved using <strong>RViz</strong>, showing the robot's path, target trajectory, and live sensor feedback.
+      </p>
+
+      <h3 class="pr-subtitle">Testing, Analysis, and Competition</h3>
+
+      <img src="/img/diff/traj.png" alt="Robot Testing" class="project-img-left">
+
+      <p class="project-description">
+        Extensive testing was performed in controlled environments to validate velocity control, odometry accuracy, sensor fusion, and trajectory following.
+      </p>
+
+      <p>
+        Data from experiments was exported and analyzed in <strong>MATLAB</strong> to adjust parameters, validate simulations, and refine controller response.
+      </p>
+
+      <p>
+        In the final competition, the robot completed two laps of the square circuit significantly faster than other teams, securing <strong>first place</strong>.
+      </p>
+
+      <h3 class="pr-subtitle">Engineering Notebook</h3>
+
+      <p>
+        • <a href="https://knowing-woolen-cec.notion.site/Differential-Drive-Engineering-Notebook-27e48b3a814580cc9170fa3d33af6e24?source=copy_link" target="_blank">Differential Drive Engineering Notebook</a>
+      </p>
+
+      <br><br>
+
+    </div>
+
+    <!-- Centered YouTube Video -->
+    <div class="video-container w3-center">
+      <h4>Competition Run Video</h4>
+      <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/SU47SEMJ_VY?si=-9zxbti9OhHD7QQp"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Footer Buttons -->
+    <footer class="w3-center w3-padding-16 git">
+      <a href="https://knowing-woolen-cec.notion.site/Differential-Drive-Engineering-Notebook-27e48b3a814580cc9170fa3d33af6e24?source=copy_link"
+         target="_blank"
+         class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-bar-chart w3-xlarge"></i> Engineering Notebook
+      </a>
+      <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+      </a>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
