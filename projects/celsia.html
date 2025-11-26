@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electric Grid Fault Identification</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">Electric Grid Fault Identification</h1>
+    <p>Unsupervised clustering and signal-modeling for early anomaly detection in CELSIA's distribution network</p>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <p class="project-date">Completed: December 2025</p>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+
+      <!-- IMAGE PLACEHOLDER -->
+      <img src="/img/celsia/main.png" alt="Grid Fault Identification" class="project-img">
+
+      <p class="project-description">
+        This project explores <strong>fault detection in electric distribution grids</strong> using only 
+        daily energy consumption data (kWh) provided by <strong>CELSIA S.A. E.S.P.</strong>.
+        Due to the lack of electrical variables such as voltage, current, or power quality metrics,
+        the challenge centered on extracting meaningful anomaly indicators from a low-resolution dataset.
+        The work followed the <strong>ASUM-DM</strong> data-mining methodology and evaluated several 
+        unsupervised models to cluster consumption profiles and detect irregular behavior.
+      </p>
+
+      <p>
+        My main contributions included:
+      </p>
+
+      <ul>
+        <li><strong>Full preprocessing pipeline</strong> for filtering, cleaning, validating, and transforming all meter data</li>
+        <li><strong>Feature engineering</strong> (sinusoidal time encoding, net consumption, contextual variables)</li>
+        <li><strong>Implementation and tuning</strong> of multiple clustering algorithms (K-Means, MiniBatch, Birch, DBSCAN, GMM)</li>
+        <li><strong>Hyperparameter optimization</strong> using elbow criterion, silhouette analysis, dendrograms, BIC, and density analysis</li>
+        <li><strong>Interpretation of clustering results</strong>, with detailed anomaly/outlier characterization</li>
+        <li><strong>Final model selection</strong> based on operational constraints and failure-detection goals</li>
+      </ul>
+
+      <!-- Data Preprocessing -->
+      <h3 class="pr-subtitle">Data Understanding & Preprocessing</h3>
+
+      <img src="/img/celsia/cyclic.png" alt="Preprocessing" class="project-img-right">
+
+      <p class="project-description">
+        The original dataset contained daily cumulative energy readings from 401 meters over one year.
+        Because <strong>KWH_IMPORT is incremental</strong>, all net consumptions were computed using adjacent differences,
+        while discarding invalid or saturated readings. Eight meters with constant consumption were removed.
+      </p>
+
+      <p class="project-description">
+        Time variables were decomposed into <strong>sin-cos cyclic encodings</strong> (day and month),
+        and meter-level context features were engineered:
+      </p>
+
+      <ul>
+        <li><strong>CONSUMO_NETO</strong> - net daily consumption</li>
+        <li><strong>METER_STD_CONSUMO</strong> - meter variability</li>
+        <li><strong>CONSUMO_DEVIATION</strong> - deviation from the meter's mean behavior</li>
+        <li>Cyclic <strong>DIA_sin/cos</strong> and <strong>MES_sin/cos</strong></li>
+      </ul>
+
+      <p class="project-description">
+        After univariate and multivariate exploration, redundant variables were removed and
+        all features were scaled with <strong>MinMaxScaler</strong>.  
+        The final dataset contained <strong>140,628 entries</strong>.
+      </p>
+
+      <!-- Model Construction -->
+      <h3 class="pr-subtitle">Model Construction</h3>
+
+      <img src="/img/celsia/dendo.png" alt="Clustering Models" class="project-img-left">
+
+      <p class="project-description">
+        Following ASUM-DM guidelines, several clustering algorithms were trained and compared:
+      </p>
+
+      <ul>
+        <li><strong>K-Means</strong>: evaluated k = 2-15 using elbow & silhouette analysis</li>
+        <li><strong>MiniBatchKMeans</strong>: reduced computational cost, k = 4</li>
+        <li><strong>Birch</strong>: hyperparameters tuned to enforce 4 clusters</li>
+        <li><strong>DBSCAN</strong>: epsilon and min_samples tuned through k-distance curves and grid search</li>
+        <li><strong>Gaussian Mixture Models</strong>: covariance types tested, final model chosen using <strong>BIC minimization</strong></li>
+      </ul>
+
+      <p class="project-description">
+        Silhouette scores, cluster separability, and operational interpretability were used as the main selection criteria.
+        Although K-Means with k=12 scored highest mathematically, operational constraints favored a 
+        <strong>reduced number of clusters (≤ 5)</strong> to meaningfully classify states such as normal, sector failure, or anomalies.
+      </p>
+
+      <!-- Results -->
+      <h3 class="pr-subtitle">Results & Cluster Interpretation</h3>
+
+      <img src="/img/celsia/cover.png" alt="Cluster Results" class="project-img">
+
+      <p class="project-description">
+        The final selected model was <strong>K-Means with k = 5</strong>, which balanced 
+        statistical performance and operational interpretability.
+      </p>
+
+      <p class="project-description">
+        Across all models, the data exhibited <strong>high internal variability</strong> and
+        <strong>large numbers of outliers in every cluster</strong>.  
+        Boxplots showed that consumption anomalies were not localized to specific groups—
+        instead, outliers appeared throughout the entire network, making it impossible to identify
+        reliable “representative meters” for each cluster.
+      </p>
+
+      <p class="project-description">
+        Cluster means were nearly identical (1.95–2.09 kWh), but their <strong>variances differed</strong>:
+      </p>
+
+      <ul>
+        <li>Cluster 1 showed the <strong>highest variability</strong> → noisy or unstable consumption</li>
+        <li>Cluster 0, 2, and 3 were structurally similar</li>
+        <li>Cluster 4 had slightly higher variability but remained within typical ranges</li>
+      </ul>
+
+      <p class="project-description">
+        These results indicate that the data naturally separates consumers into behavioral profiles,
+        but does not isolate <strong>distinct electrical fault modes</strong>.  
+        This is consistent with the fundamental limitation: consumption in kWh is an 
+        <strong>aggregated, low-resolution signal</strong> that hides fast transient behaviors typical of real faults.
+      </p>
+
+      <!-- Conclusions -->
+      <h3 class="pr-subtitle">Conclusions</h3>
+
+      <img src="/img/celsia/pattern.png" alt="Conclusion" class="project-img-right">
+
+      <p class="project-description">
+        The project successfully produced a full data-driven characterization of consumption behavior for 401 meters,
+        revealing distinct but subtly separated consumer profiles.  
+        However, due to the <strong>absence of electrical variables</strong> (voltage, current, RMS values),
+        none of the unsupervised models could isolate clear failure states.
+      </p>
+
+      <p class="project-description">
+        The work concludes that:
+      </p>
+
+      <ul>
+        <li>Daily kWh consumption alone is <strong>insufficient</strong> for reliable fault detection.</li>
+        <li>The clustering results are valuable for <strong>consumer profiling</strong>, not diagnosis.</li>
+        <li>High variability and widespread outliers reduce cluster separability.</li>
+        <li>A fault-oriented model requires <strong>higher-resolution electrical data</strong>.</li>
+      </ul>
+
+      <p class="project-description">
+        Despite the limitations, the pipeline offers a <strong>solid foundation</strong> for integrating future 
+        high-resolution electrical measurements and for developing anomaly-detection models that do not rely on balanced clusters.
+      </p>
+
+      <br><br>
+
+      <!-- GitHub Section -->
+      <footer class="w3-center w3-padding-16 git">
+        <a href="https://github.com/santy-estrada/electric-grid-project" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-github w3-xlarge"></i> GitHub Repository
+        </a>
+        <a href="../files/InformeFinal.pdf" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-file-pdf-o w3-xlarge"></i> Final Report
+        </a>
+        <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+        </a>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
