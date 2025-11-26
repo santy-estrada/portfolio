@@ -160,3 +160,20 @@ header h6 {
   border: none;
 }
 
+.multiple-videos-wrapper {
+  position: relative;
+  width: 100%; /* Width of the video as a percentage of the container */
+  margin: 0 auto 8px auto; /* Center the video and add bottom margin */
+  padding-bottom: 56.25%; /* Aspect ratio: 16:9 (height/width * 100) */
+  height: 0;
+}
+
+.multiple-videos-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+

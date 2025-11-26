@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3-DOF RRP SCARA Robot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<!-- Page Content -->
+<div class="w3-padding-large">
+
+  <!-- Header -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">3-DOF RRP SCARA Robot</h1>
+    <p>Design, modeling, programming, and testing of a precision RRP SCARA manipulator</p>
+  </header>
+
+  <!-- Project Details -->
+  <div class="w3-content w3-justify w3-text-grey">
+
+    <h2 class="w3-text-light-grey">Project Details</h2>
+    <p class="project-date">Completed: November 2025</p>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-content w3-justify w3-text-grey w3-padding-16">
+
+      <!-- IMAGE PLACEHOLDER -->
+      <img src="/img/scara/teams.jpg" alt="SCARA Main Image" class="project-img">
+
+      <p class="project-description">
+        This project consisted of the <strong>design, construction, programming, and testing</strong> 
+        of a 3-DOF RRP SCARA robot capable of point-to-point positioning, 
+        smooth trajectory following, and drawing parametric shapes.
+      </p>
+
+      <p>
+        The robot was developed following an <strong>iterative engineering approach</strong>  
+        that combined mechanical redesign, accurate kinematic modelling, 
+        object-oriented embedded programming, and high-level motion planning.  
+        Key features include:
+      </p>
+
+      <ul>
+        <li><strong>RRP kinematic structure</strong> for planar positioning + vertical actuation</li>
+        <li><strong>Calibrated actuators</strong> with position and velocity estimation</li>
+        <li><strong>Object-oriented firmware</strong> for filtering and control</li>
+        <li><strong>Trajectory interpolation</strong> enabling continuous drawing</li>
+        <li><strong>Testing of accuracy, repeatability, and controller performance</strong></li>
+      </ul>
+
+      <!-- Mechanical Design -->
+      <h3 class="pr-subtitle">Mechanical Design</h3>
+
+      <img src="/img/scara/cad.png" alt="SCARA CAD" class="project-img-right">
+
+      <p class="project-description">
+        The mechanical structure is based on an open-source RRP design but was fully 
+        re-engineered to improve stiffness, modularity, and backlash performance.  
+        The CAD model features:
+      </p>
+
+      <ul>
+        <li><strong>Rigid revolute joints</strong> with reduced tolerance stacking</li>
+        <li><strong>Reinforced prismatic axis</strong> for smoother vertical motion</li>
+        <li><strong>Modular links</strong> that simplify calibration and assembly</li>
+        <li><strong>Improved cable routing</strong> for friction-free motion</li>
+      </ul>
+      <br><br><br><br>
+      <!-- Structural Redesign -->
+      <h3 class="pr-subtitle">Structural Redesign</h3>
+
+      <img src="/img/scara/des.png" alt="SCARA Original Design" class="project-img-left">
+
+      <p class="project-description">
+        After early experiments, accumulated tolerances and flexure in the joints were addressed. 
+        The redesign introduced:
+      </p>
+
+      <ol>
+        <li><strong>Re-machined joint interfaces</strong> to minimize play</li>
+        <li><strong>Improved bearing arrangement</strong> for smoother rotation</li>
+        <li><strong>Stiffer prismatic guide</strong> reducing vertical wobble</li>
+        <li><strong>Center-of-mass optimization</strong> for stable dynamic motion</li>
+      </ol>
+
+      <!-- Point-to-Point Control -->
+      <h3 class="pr-subtitle">Point-to-Point Control</h3>
+
+      <img src="/img/scara/redes.png" alt="SCARA Redesign" class="project-img-right">
+
+      <p class="project-description">
+        The SCARA uses <strong>inverse kinematics</strong> to convert Cartesian targets into joint angles.  
+        A timing law synchronizes all joints to ensure coordinated motion, allowing the manipulator 
+        to reach targets smoothly and reliably.
+      </p>
+
+    <!-- Trajectory Following -->
+    <h3 class="pr-subtitle">Trajectory Following & Drawing</h3>
+
+    <p class="project-description">
+    The SCARA robot supports smooth point-to-point motion and continuous trajectory execution,
+    including parametric curves extracted from engineering drawings.  
+    A configurable interpolation module allows <strong>linear, cubic, or quintic</strong> trajectories 
+    in both task space and configuration space, enabling fluid and precise drawing motions.
+    </p>
+
+    <!-- Low-Level Programming -->
+    <h3 class="pr-subtitle">Low-Level Firmware Architecture</h3>
+
+    <p class="project-description">
+    The embedded firmware was implemented in <strong>object-oriented C++</strong> and executed entirely 
+    on hardware-timed control loops, independent of the micro-ROS middleware.  
+    This architecture uses a multi-rate cascade controller supported by a Kalman-based state estimator:
+    </p>
+
+    <ul>
+    <li>
+        <strong>Kalman velocity estimator</strong> running every 5&nbsp;ms to obtain smooth velocity estimates 
+        despite encoder resolution limits.
+    </li>
+    <li>
+        <strong>Encoder corrections</strong> applied every 5 Kalman prediction steps, refining the velocity estimate.
+    </li>
+    <li>
+        <strong>Outer position control loop</strong> executed every two encoder corrections, maintaining a 10:1 
+        ratio between inner and outer loop frequencies.
+    </li>
+    <li>
+        <strong>Hardware timers</strong> ensure precise timing of all loops, allowing the controller to run 
+        deterministically outside the micro-ROS executor.
+    </li>
+    </ul>
+
+    <p class="project-description">
+    This multi-rate cascade control structure improves responsiveness, reduces noise sensitivity, and ensures 
+    stable tracking even during high curvature segments of a trajectory.
+    </p>
+
+    <!-- High-Level Controller -->
+    <h3 class="pr-subtitle">High-Level Motion Controller</h3>
+
+    <img src="/img/scara/ros2.jpg" alt="SCARA motion control" class="project-img-left">
+
+    <p class="project-description">
+    High-level trajectory generation and visualization were implemented in <strong>ROS&nbsp;2</strong> on a PC.  
+    A dedicated node processes <strong>DXF drawings</strong> into dense point clouds, performs 
+    <strong>task-space interpolation</strong>, and solves the <strong>RRP inverse kinematics</strong> 
+    to obtain joint configurations.  
+    A second interpolation step is then performed in configuration space to ensure motion smoothness.  
+    All of this computation is done <strong>offline</strong> to guarantee deterministic execution at runtime.
+    </p>
+
+    <p class="project-description">
+    A separate ROS&nbsp;2 node streams the interpolated joint targets at a configurable rate to the 
+    microcontroller.  
+    The robot returns its joint-state estimates every 100&nbsp;ms, allowing real-time monitoring in RViz,
+    where the <strong>desired trajectory</strong> and <strong>actual motion</strong> are visualized side by side.
+    </p>
+
+    <ul>
+    <li><strong>DXF → point cloud</strong> preprocessing</li>
+    <li><strong>Task-space interpolation:</strong> linear, cubic, or quintic</li>
+    <li><strong>Inverse kinematics</strong> for RRP geometry</li>
+    <li><strong>Configuration-space interpolation</strong> for smooth execution</li>
+    <li><strong>Streaming of joint targets</strong> to the microcontroller</li>
+    <li><strong>RViz visualization</strong> of real and reference trajectories</li>
+    </ul>
+
+    <p class="project-description">
+    For safety, the manipulator includes a <strong>deadman switch</strong> that must remain pressed 
+    for trajectory execution to continue, preventing unintended behavior.
+    </p>
+
+    <!-- Results -->
+    <h3 class="pr-subtitle">Trajectory Following Results</h3>
+
+    <img src="/img/scara/sprocket.png" alt="SCARA trajectory results" class="project-img">
+
+    <p class="project-description">
+    The SCARA successfully followed both straight and curved trajectories with high precision.  
+    The image above shows a sprocket drawing that demonstrates the manipulator's ability to execute 
+    smooth transitions between linear segments and circular arcs, validating the effectiveness of 
+    the trajectory interpolation and control architecture.
+    </p>
+
+      <!-- Video Section -->
+<div class="w3-center w3-padding-32">
+  <h3 class="pr-subtitle">Demonstration Videos</h3>
+
+  <div class="w3-row" style="max-width: 1400px; margin: 0 auto;">
+
+    <!-- Main Video -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/Y0b3HOzwCYE?si=6qZpDwzRYXxe2C-q"
+                title="SCARA Robot Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Secondary Video -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/SWgddPg9hyo?si=74JC1P6pqi_I6Z3-"
+                title="SCARA Robot Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Tertiary Video -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/FGpBFzVXhW8?si=5kbvt49Iei8EexkY"
+                title="SCARA Robot Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+    
+    <!-- YouTube Short -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/ACHz2qweIpE"
+                title="SCARA Short"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+      <!-- GitHub Section -->
+      <footer class="w3-center w3-padding-16 git">
+        <a href="https://github.com/santy-estrada/industrial_robotics_ros2_pico/tree/main/scara" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-github w3-xlarge"></i> Firmware Repository
+        </a>
+        <a href="https://github.com/santy-estrada/industrial_robotics_ros2_labs/tree/main/scara_pkg_gr03" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-github w3-xlarge"></i> Control Node Repository
+        </a>
+        <a href="https://knowing-woolen-cec.notion.site/SCARA-Engineering-Notebook-25248b3a814580fb99ccc9b1e6e3cafc?source=copy_link" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-bar-chart w3-xlarge"></i> Engineering Notebook
+        </a>
+        </a>
+        <a href="../files/" class="w3-button w3-black w3-hover-grey w3-round" target="_blank">
+        <i class="fa fa-file-pdf-o w3-xlarge"></i> Paper
+      </a>
+        <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+        </a>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
