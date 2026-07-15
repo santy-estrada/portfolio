@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ball and Beam Platform</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<div class="w3-padding-large">
+
+<header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">Ball and Beam Platform</h1>
+    <p>Design, mechanical development, and dynamic modelling of a portable mechatronic control platform</p>
+</header>
+
+<div class="w3-content w3-justify w3-text-grey">
+
+<h2 class="w3-text-light-grey">Project Details</h2>
+<p class="project-date">Completed: June 2026</p>
+<hr style="width:200px" class="w3-opacity">
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-16">
+
+<!-- IMAGE 1 -->
+<img src="/img/bnb/Real Ball&Beam.jpeg" alt="Ball and Beam Platform" class="project-img">
+
+<p class="project-description">
+This project focused on the complete <strong>design, modelling, construction, and experimental validation</strong>
+of a compact Ball and Beam platform intended for automatic control education.
+Rather than purchasing a commercial system, the objective was to develop a
+<strong>fully integrated mechatronic platform</strong> that combines custom mechanical design,
+embedded electronics, sensing, and mathematical modelling into a portable laboratory setup.
+</p>
+
+<p>
+The project emphasized the complete engineering workflow, from conceptual design and CAD
+modelling to manufacturing, subsystem integration, and validation of the dynamic model.
+The resulting prototype provides a robust experimental platform suitable for future controller
+development while remaining affordable and easily reproducible.
+</p>
+
+<ul>
+<li><strong>Custom mechanical transmission</strong> using an eccentric disk mechanism</li>
+<li><strong>Portable 35 × 40 cm platform</strong> integrating mechanics and electronics</li>
+<li><strong>Custom PCB</strong> for sensing and actuator interfacing</li>
+<li><strong>Lagrangian-based mathematical modelling</strong></li>
+<li><strong>Experimental model validation</strong> using the physical prototype</li>
+</ul>
+
+<!-- Mechanical Design -->
+
+<h3 class="pr-subtitle">Mechanical Design</h3>
+
+<!-- IMAGE 2 -->
+<img src="/img/bnb/ExplosionadoB&B.png" alt="Exploded CAD Model" class="project-img-right">
+
+<p class="project-description">
+The mechanical architecture was designed around three primary objectives:
+<strong>portability, repeatability, and ease of fabrication.</strong>
+Unlike many educational Ball and Beam systems that rely on multi-link lever mechanisms,
+this design employs an <strong>eccentric disk transmission</strong> that converts motor rotation
+directly into beam motion while minimizing backlash and reducing the number of mechanical interfaces.
+</p>
+
+<p class="project-description">
+The transmission uses a belt-and-pulley reduction to improve angular resolution and torque,
+while adjustable bearing supports simplify assembly and alignment.
+The complete assembly was developed in CAD before fabrication,
+allowing interference verification and dimensional validation prior to manufacturing.
+</p>
+
+<br><br><br>
+
+<!-- Manufacturing -->
+
+<h3 class="pr-subtitle">Manufacturing & Integration</h3>
+
+<p class="project-description">
+The prototype combines multiple manufacturing technologies to balance
+cost, mechanical performance, and ease of replication.
+Laser-cut acrylic provides a smooth rolling surface for the beam,
+while structural supports, bearing housings, and transmission components
+were manufactured using PETG additive manufacturing.
+Commercial bearings, pulleys, and shafts were integrated with custom machined parts
+to produce a rigid and serviceable platform.
+</p>
+
+<p class="project-description">
+A custom PCB integrates the infrared position sensor,
+motor driver, encoder interface, and Raspberry Pi Pico microcontroller,
+creating a compact self-contained experimental platform suitable for classroom
+and laboratory environments.
+</p>
+
+<!-- Dynamic Modelling -->
+
+<h3 class="pr-subtitle">Dynamic Modelling & Validation</h3>
+
+<!-- IMAGE 4 -->
+<img src="/img/bnb/ballNbeam_identification_response.png" alt="Model Validation" class="project-img-left">
+
+<p class="project-description">
+A complete mathematical model of the system was derived using
+<strong>Lagrangian mechanics</strong>, describing the relationship between beam angle
+and ball position while accounting for the rolling dynamics of the sphere.
+Unlike classical educational models, the project also incorporates experimentally identified actuator dynamics, resulting in an extended third-order representation that more accurately captures the behavior of the physical system.
+</p>
+
+<p class="project-description">
+Experimental testing demonstrated that including actuator dynamics
+dramatically improves agreement between simulation and reality,
+producing a model that closely reproduces the measured transient response.
+This validated model provides a reliable foundation for future control strategies,
+system identification, and educational experiments.
+</p>
+
+<!-- Footer -->
+
+<footer class="w3-center w3-padding-16 git">
+
+<a href="../files/bnb_v2.pdf"
+class="w3-button w3-black w3-hover-grey w3-round"
+target="_blank">
+<i class="fa fa-file-pdf-o w3-xlarge"></i> Paper
+</a>
+
+<a href="#top"
+class="w3-button w3-black w3-hover-grey w3-round">
+<i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+</a>
+
+</footer>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
