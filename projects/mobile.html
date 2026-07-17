@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile Robotics Navigation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body class="w3-black">
+
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<div class="w3-padding-large">
+
+<header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">Mobile Robotics Navigation</h1>
+    <p>Simulation, implementation, and autonomous mapping using ROS2</p>
+
+    <!-- NEW: Where it was presented -->
+    <div class="w3-panel w3-pale-green w3-leftbar w3-border-green w3-padding">
+      <p>Presented at the <strong>9th IEEE Colombian Conference on Applications of Computational Intelligence (ColCACI 2026)</strong> as part of Other Applications of Computational Intelligence <strong>Technical Session</strong>.</p>
+    </div>
+</header>
+
+<div class="w3-content w3-justify w3-text-grey">
+
+<h2 class="w3-text-light-grey">Project Details</h2>
+<p class="project-date">Completed: June 2026</p>
+<hr style="width:200px" class="w3-opacity">
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-16">
+
+<!-- IMAGE 1 -->
+<img src="/img/mobile/acker.png" alt="Ackermann Platform" class="project-img">
+
+<p class="project-description">
+This project explores autonomous navigation from simulation to real-world implementation using ROS2 and Gazebo. The work investigates reactive navigation, map-based navigation, and autonomous mapping as complementary stages of a complete mobile robotics pipeline. <!-- The project culminated in multiple scientific publications describing both simulation studies and experimental validation on a 1/10-scale Ackermann-steered robotic vehicle. -->
+</p>
+
+<h3 class="pr-subtitle">Simulation of Reactive and Map-Based Navigation</h3>
+
+<!-- IMAGE 2 -->
+<img src="/img/mobile/stanley.png" alt="Simulation Environment" class="project-img-right">
+
+<p class="project-description">
+The first stage focused on developing a unified simulation framework capable of evaluating multiple autonomous navigation strategies under identical operating conditions. The environment was created in ROS2 Jazzy and Gazebo Harmonic using occupancy-grid maps and realistic robot models equipped with LiDAR and inertial sensing.
+</p>
+
+<p class="project-description">
+Reactive navigation algorithms including Wall Following, Distance-Based Follow-the-Gap, and TTC-Based Follow-the-Gap were evaluated alongside map-based approaches using ARA* global planning with Pure Pursuit and Stanley path tracking. All methods operated under a common Time-to-Collision Automatic Emergency Braking System, allowing direct comparison of navigation smoothness, safety, tracking performance, and traversal efficiency.
+</p>
+
+<h3 class="pr-subtitle">Implementation of Reactive and Map-Based Navigation</h3>
+
+<!-- IMAGE 3 -->
+<img src="/img/mobile//run.png" alt="Implementation" class="project-img-left">
+
+<p class="project-description">
+The simulation framework was subsequently transferred to a real Ackermann-steered RC platform equipped with a Raspberry Pi 5, RPLIDAR A1M8, IMU, wheel encoder, and distributed ROS2 architecture. The vehicle combines onboard computation with external processing for localization, visualization, and autonomous control while preserving real-time operation.
+</p>
+
+<p class="project-description">
+For map-based navigation, occupancy-grid maps generated with SLAM were used to compute global trajectories through the Anytime Repairing A* planner. These trajectories were tracked using an adaptive Pure Pursuit controller featuring velocity-dependent lookahead, heading-error-based speed adaptation, and encoder-informed odometry estimation. Experimental validation demonstrated reliable autonomous navigation across different operating speeds while maintaining stable trajectory convergence under real sensing and actuation constraints.
+</p>
+
+<h3 class="pr-subtitle">Reactive Mapping and Autonomous Exploration</h3>
+
+<!-- IMAGE 4 -->
+<img src="/img/mobile/Mapping.png" alt="Reactive Mapping" class="project-img-right">
+
+<p class="project-description">
+The final stage addressed the fundamental challenge of autonomous map generation in previously unknown environments. Instead of relying on an existing map, the vehicle used a reactive Follow-the-Gap navigation strategy combined with SLAM Toolbox to safely explore and simultaneously construct occupancy-grid maps.
+</p>
+
+<p class="project-description">
+This approach demonstrates how reactive navigation naturally complements map-based planning by enabling the autonomous creation of the environmental representation required for global planning. During exploration, the robot relied exclusively on onboard LiDAR observations without predefined trajectories or external intervention, producing geometrically consistent maps that could later be reused for autonomous map-based navigation.
+</p>
+
+<h3 class="pr-subtitle">Project Contributions</h3>
+
+<p class="project-description">
+Together, these projects establish a complete autonomous navigation workflow covering simulation, experimental implementation, and autonomous map generation. The work demonstrates how reactive navigation, map-based planning, and SLAM should be viewed as complementary technologies rather than competing approaches, providing a reproducible ROS2-based framework that spans the complete lifecycle of autonomous mobile robot deployment.
+</p>
+
+<!-- Video Section -->
+<div class="w3-center w3-padding-32">
+  <h3 class="pr-subtitle">Demonstration Videos</h3>
+
+  <div class="w3-row" style="max-width: 1400px; margin: 0 auto;">
+
+    <!-- Main Video -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/Y0b3HOzwCYE?si=6qZpDwzRYXxe2C-q"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Secondary Video -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/SWgddPg9hyo?si=74JC1P6pqi_I6Z3-"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Tertiary Video -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/FGpBFzVXhW8?si=5kbvt49Iei8EexkY"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+    
+    <!-- YouTube Short -->
+    <div class="w3-half" style="padding: 0 4px;">
+      <div class="multiple-videos-wrapper">
+        <iframe src="https://www.youtube.com/embed/ACHz2qweIpE"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Buttons -->
+      <footer class="w3-center w3-padding-16 git">
+        <a href="https://github.com/santy-estrada/reactive_methods_diffdrive" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-github w3-xlarge"></i> Reactive Navigation Repository
+        </a>
+        <a href="https://github.com/santy-estrada/map_based_methods_diffdrive" target="_blank" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-github w3-xlarge"></i> Maps-Based Navigation Repository
+        </a>
+        </a>
+        <a href="../files/colcaci_mobile_v6.pdf" class="w3-button w3-black w3-hover-grey w3-round" target="_blank">
+        <i class="fa fa-file-pdf-o w3-xlarge"></i> ColCACI 2026 Paper
+      </a>
+        <a href="#top" class="w3-button w3-black w3-hover-grey w3-round">
+          <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+        </a>
+      </footer>
+
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
