@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Neural Network Complexity Analysis for System Identification</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body class="w3-black">
+
+<!-- Fixed Back Button -->
+<a href="../index.html" class="w3-button w3-small w3-black w3-hover-grey w3-round fixed-button">
+  <i class="fa fa-arrow-left"></i>
+  <span>Home</span>
+</a>
+
+<div class="w3-padding-large">
+
+<header class="w3-container w3-padding-32 w3-center w3-black" id="top">
+    <h1 class="pr-title">Neural Network Complexity Analysis</h1>
+    <p>Data-driven system identification of a nonlinear pneumatic levitation system using NARX neural networks</p>
+
+    <!-- NEW: Where it was presented -->
+    <div class="w3-panel w3-pale-green w3-leftbar w3-border-green w3-padding">
+      <p>Presented at the <strong>9th IEEE Colombian Conference on Applications of Computational Intelligence (ColCACI 2025)</strong> as part of the Neural Networks and Learning Machines <strong>Technical Session</strong>.</p>
+    </div>
+</header>
+
+<div class="w3-content w3-justify w3-text-grey">
+
+<h2 class="w3-text-light-grey">Project Details</h2>
+<p class="project-date">Completed: March 2026</p>
+<hr style="width:200px" class="w3-opacity">
+
+<div class="w3-content w3-justify w3-text-grey w3-padding-16">
+
+<img src="/img/neuralNetwork/results.png"
+     alt="Results of Neural Network Complexity Analysis"
+     class="project-img">
+
+<p class="project-description">
+This research investigates how <strong>neural network complexity influences nonlinear system identification</strong>.
+A feedforward multilayer perceptron was implemented within a
+<strong>NARX (Nonlinear AutoRegressive with eXogenous inputs)</strong>
+framework to model the dynamics of a pneumatic levitation system
+using only experimentally collected input-output data.
+</p>
+
+<p>
+The study compares multiple neural network architectures while
+keeping the training conditions constant, allowing the influence of
+model complexity on prediction accuracy and generalization to be
+evaluated systematically.
+</p>
+
+<h3 class="pr-subtitle">Methodology & Results</h3>
+
+<img src="/img/neuralNetwork/preds.png"
+     alt="Prediction Results"
+     class="project-img-right">
+
+<p class="project-description">
+A database of 4000 experimental samples obtained from a pneumatic levitation system was used to train and validate the neural models, using Matlab for the black-box nonlinear system identification. The architectures ranged from compact single-hidden-layer networks to deeper two-layer configurations, allowing a direct comparison
+between representational capacity and predictive performance. A total of 12 architectures were evaluated, with the number of neurons in each hidden layer varying from 1 to 10.
+</p>
+
+<p class="project-description">
+The experimental results demonstrated that increasing network size
+does not necessarily improve identification accuracy. A moderate
+<strong>(5,5)</strong> architecture achieved the best compromise between
+prediction error, generalization, and stability during recursive
+free-run simulations, highlighting the importance of selecting an
+appropriate model complexity rather than simply increasing the
+number of neurons.
+</p>
+
+<footer class="w3-center w3-padding-16 git">
+
+    <a href="../files/SI___MRNA_Model_v3.pdf"
+       class="w3-button w3-black w3-hover-grey w3-round"
+       target="_blank">
+        <i class="fa fa-file-pdf-o w3-xlarge"></i> Paper
+    </a>
+
+    <a href="#top"
+       class="w3-button w3-black w3-hover-grey w3-round">
+        <i class="fa fa-arrow-up w3-xlarge"></i> Back to Top
+    </a>
+
+</footer>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
